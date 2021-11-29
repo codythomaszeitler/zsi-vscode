@@ -1,45 +1,57 @@
 {
   "name": "zsi-vscode",
-	"displayName": "zsi-vscode",
-	"description": "Extensions made by Cody Zeitler for the VSCode extensions pack.",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.62.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:zsi-vscode.helloWorld"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "zsi-vscode.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.62.0",
-		"@types/glob": "^7.1.4",
-		"@types/mocha": "^9.0.0",
-		"@types/node": "14.x",
-		"@typescript-eslint/eslint-plugin": "^5.1.0",
-		"@typescript-eslint/parser": "^5.1.0",
-		"eslint": "^8.1.0",
-		"glob": "^7.1.7",
-		"mocha": "^9.1.3",
-		"typescript": "^4.4.4",
-		"@vscode/test-electron": "^1.6.2"
-	}
+  "displayName": "zsi-vscode",
+  "description": "Extensions made by Cody Zeitler for the VSCode extensions pack.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.62.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codythomaszeitler/zsi-vscode.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:zsi-vscode.runTestUnderCursor",
+    "onCommand:zsi-vscode.runCurrentTestClass"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "zsi-vscode.runTestUnderCursor",
+        "title": "SFDX CODY - Run Test Method Underneath Cursor"
+      },
+      {
+        "command": "zsi-vscode.runCurrentTestClass",
+        "title": "SFDX CODY - Run Currently Focused Test Class"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.62.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@vscode/test-electron": "^1.6.2",
+    "eslint": "^8.1.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.3",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "vscode-uri": "^3.0.2"
+  }
 }
