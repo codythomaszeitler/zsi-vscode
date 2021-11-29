@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import {
   runCurrentTestClass,
   getCurrentClassName,
+  isApexTestClass,
 } from "./zsiRunCurrentTestClass";
 
 export function runTestUnderneathCursor() {
@@ -68,7 +69,7 @@ export function runTestUnderneathCursor() {
     );
   };
 
-  if (currentWindowEditor) {
+  if (currentWindowEditor && isApexTestClass()) {
     const className = getCurrentClassName();
 
     if (isCurrentyHoveredATestMethod()) {

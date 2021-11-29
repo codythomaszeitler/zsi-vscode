@@ -11,9 +11,19 @@ export function runCurrentTestClass() {
   }
 }
 
-export function getCurrentClassName() {
+export function isApexTestClass() {
   const currentWindowEditor = vscode.window.activeTextEditor;
   if (currentWindowEditor) {
+    const basename = Utils.basename(currentWindowEditor.document.uri);
+    return basename.endsWith(".cls");
+  } else {
+    return "";
+  }
+}
+
+export function getCurrentClassName() {
+  const currentWindowEditor = vscode.window.activeTextEditor;
+  if (currentWindowEditor && isApexTestClass()) {
     return Utils.basename(currentWindowEditor.document.uri).replace(".cls", "");
   } else {
     return "";
